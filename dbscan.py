@@ -50,7 +50,7 @@ def dbscan(data, eps, num_points):
     return labels, core
 
 def print_clusters(data, labels, core, eps, min_pts):
-    print("DBSCAN clustering result")
+    print("DBSCAN Clustering Result")
     print(f"Epsilon: {eps}, MinPts: {min_pts}")
 
     unique_labels = set(labels)
@@ -95,7 +95,7 @@ def print_clusters(data, labels, core, eps, min_pts):
         print(f"Core Points: {core_count}")
 
         print("Points:")
-        for p in cluster_points[:3]:
+        for p in cluster_points:
             print(p.tolist())
 
         print()
