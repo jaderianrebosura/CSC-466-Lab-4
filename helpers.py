@@ -2,16 +2,29 @@ import pandas as pd
 import numpy as np
 
 def load_clustering_data(filename):
-    df = pd.read_csv(filename, header=None)
-    restriction = df.iloc[0].values
-    data = df.iloc[1:].reset_index(drop=True)
+    rows = []
+
+    with open(filename, "r") as f:
+        for line in f:
+            parts = [x.strip() for x in line.strip().split(",")]
+
+            if len(parts) > 0 and parts[-1] == "":
+                parts = parts[:-1]
+
+            if len(parts) > 0:
+                rows.append(parts)
+
+    restriction = rows[0]
+    data_rows = rows[1:]
 
     use_cols = [i for i, val in enumerate(restriction) if int(val) == 1]
-    data = data.iloc[:, use_cols]
 
-    data = data.apply(pd.to_numeric)
+    data = []
+    for row in data_rows:
+        selected = [float(row[i]) for i in use_cols]
+        data.append(selected)
 
-    return data.values
+    return np.array(data)
 
 def euclidean_distance(p1, p2):
     return np.sqrt(np.sum((p1 - p2) ** 2))
