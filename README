@@ -1,0 +1,33 @@
+Lab 4 Report - CSC 466
+Names: Julien Fiechter, Jaderian Rebosura
+Emails: jfiechte@calpoly.edu, jrebosur@calpoly.edu
+
+The following implementations of kmeans.py, hclustering.py, and dbscan.py
+all of which utilize imported functions from files we had to create as helper
+functions and metric functions in order to make computations.
+
+Here are the files that will be included in the Lab04.zip deliverables:
+// kmeans.py
+// hclustering.py
+// dbscan.py
+// helpers.py ** additional file
+// metrics.py ** additional file
+
+What is helpers.py?
+// implements a "load_clustering_data" function to essentially load in data
+from the CSV files that were included in the assignment's spec (which will be the input).
+// implements an "euclidean_distance" function to perform euclidean distance
+// implements a "compute_distance_matrix" function to compute a corresponding distance matrix
+// implements a "compute_centroid" function to compute a corresponding centroid
+// implements a "cluster_radius" to compute the cluster's radius relative to the centroid
+// implements an "intercluster_distance" function to compute distances between clusters
+
+What is metrics.py?
+// implements a "compute_silhouette" function to compute a given point's silhouette score
+// implements a "compute_cluster_silhouettes" function to compute a cluster's silhouette scores
+// implements an "intercluster_distance" function to compute the intercluster distance between two clusters
+// implements a "radius_distance_ratio" function to compute the ratio (helpful when comparing to silhouette scores in algorithms)
+// implements a "compute_rand_index" function to compute the rand_index/ rand_score
+
+When testing for certain values (epsilons, minpts, k, etc.) were tested by testing a range of values to
+determine which provided the "best" clustering (specifically by comparing between silhouette scores and radius/distance ratios).
